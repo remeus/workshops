@@ -9,9 +9,25 @@ def greet_3(names):
 def greet(name):
     if name is None:
         return "Hello, my friend."
+
     if isinstance(name, list):
+        name = ', '.join(name)
+        name = name.split(", ")
+
         if len(name) > 2:
-            return f"Hello, {greet_3(name)}."
+            upper_names = []
+            lower_names = []
+
+            for item in name:
+                if item.isupper():
+                    upper_names.append(item)
+                else:
+                    lower_names.append(item)
+
+            if len(upper_names) == 0:
+                return f"Hello, {greet_3(lower_names)}."
+            else:
+                return greet(lower_names) + " AND " + greet(upper_names[0])
         else:
             return f"Hello, {give_and(name)}."
     if name.isnumeric():

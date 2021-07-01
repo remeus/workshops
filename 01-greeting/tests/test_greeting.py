@@ -79,3 +79,25 @@ def test_greet_arrays_more_than_2():
     greeting = greet(name)
     # Then
     assert greeting == expected_greeting
+
+def test_greet_arrays_more_than_2_uppercase_mix():
+    # Given
+    name = ["Amy", "BRIAN", "Charlotte"]
+    excepted_greeting = "Hello, Amy and Charlotte. AND HELLO BRIAN!"
+
+    # When
+    greeting = greet(name)
+
+    # Then
+    assert greeting == excepted_greeting
+
+def test_greet_arrays_coma_element():
+    # Given
+    name = ["Bob", "Charlie, Dianne"]
+    excepted_greeting = "Hello, Bob, Charlie and Dianne."
+
+    # When
+    greeting = greet(name)
+
+    # Then
+    assert greeting == excepted_greeting
